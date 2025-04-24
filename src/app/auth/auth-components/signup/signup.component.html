@@ -1,0 +1,42 @@
+<div class="container-register">
+
+  <form nz-form [formGroup]="signupForm" class="container-form">
+
+
+    <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
+      <h1>REGISTER</h1>
+    </nz-spin>
+
+    <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzFor="username">Username</nz-form-label>
+        <nz-form-control [nzSpan]="14" [nzValidateStatus]="name" [nzHasFeedback]="true">
+          <input nz-input name="username" type="username" id="username" formControlName="name" />
+        </nz-form-control>
+      </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="email">E-mail</nz-form-label>
+      <nz-form-control [nzSpan]="14" [nzValidateStatus]="email" [nzHasFeedback]="true">
+        <input nz-input name="email" type="email" id="email" formControlName="email" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="password">Password</nz-form-label>
+      <nz-form-control [nzSpan]="14" [nzValidateStatus]="password" [nzHasFeedback]="true">
+        <input nz-input nz-password id="password" name="password" formControlName="password" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="confirmPassword">Confirm Password</nz-form-label>
+      <nz-form-control [nzSpan]="14" [nzValidateStatus]="confirmPassword" [nzHasFeedback]="true">
+        <input nz-input nz-password id="confirmPassword" name="confirmPassword" formControlName="confirmPassword" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item class="container-button">
+      <button id="button-submit" nz-button nzType="primary" type="submit" [disabled]="signupForm.invalid" (click)="signup()">Registrar</button> Or <button nz-button nzType="link" [routerLink]="'/login'">Login Now!</button>
+    </nz-form-item>
+  </form>
+</div>
