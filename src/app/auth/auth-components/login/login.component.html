@@ -1,0 +1,28 @@
+<div class="container-register">
+
+<form nz-form [formGroup]="loginForm" class="container-form">
+
+
+    <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
+      <h1>LOGIN</h1>
+    </nz-spin>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="email">E-mail</nz-form-label>
+      <nz-form-control [nzSpan]="14" [nzValidateStatus]="email" [nzHasFeedback]="true">
+        <input nz-input name="email" type="email" id="email" formControlName="email" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="password">Password</nz-form-label>
+      <nz-form-control [nzSpan]="14" [nzValidateStatus]="password" [nzHasFeedback]="true">
+        <input nz-input nz-password id="password" name="password" formControlName="password" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item class="container-button">
+      <button id="button-submit" nz-button nzType="primary" type="submit" [disabled]="loginForm.invalid" (click)="login()">Logar</button> Or <button nz-button nzType="link" [routerLink]="'/register'">Register Now!</button>
+    </nz-form-item>
+  </form>
+</div>
