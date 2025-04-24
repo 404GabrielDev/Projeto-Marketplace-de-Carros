@@ -1,0 +1,15 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+}
+
+nav button {
+    width: 10rem;
+    height: 2rem;
+}
