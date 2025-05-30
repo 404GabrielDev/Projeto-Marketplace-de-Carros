@@ -1,0 +1,72 @@
+<p>my-cars works!</p>
+
+<div *ngFor="let car of cars" class="container-card">
+  <div class="card-car">
+    <div>
+      <img
+        class="profile"
+        [src]="'data:image/jpeg;base64,' + car.returnedImg"
+        alt="profile"
+        [ngStyle]="{
+          width: car.imageOrientation === 'horizontal' ? '300px' : '200px',
+          height: 'auto',
+          'border-radius': '1rem'
+        }"
+      />
+    </div>
+
+    <div class="description-car">
+      <h2>{{ car.brand }} - {{ car.name }}</h2>
+      <p>{{ car.description }}</p>
+
+      <hr />
+      <h5>
+        Price : <b>{{ car.price }}</b> - Color : <b>{{ car.color }}</b> -
+        Transmission : <b>{{ car.transmission }}</b> - Type:
+        <B>{{ car.type }}</B> - Year: <b>{{ car.year | date : "yyyy" }}</b>
+      </h5>
+    </div>
+
+    <div>
+      <button
+        nzSize="small"
+        *ngIf="car.sold"
+        nzDanger
+        style="margin-left: 5px; margin-right: 10px"
+        nz-button
+        nzType="primary"
+      >
+        <span nz-icon nzType="cherck-circle" nzTheme="outline"></span>Sold
+      </button>
+
+      <button
+        style="margin-right: 10px"
+        nzSize="small"
+        nz-button
+        nzType="primary"
+        routerLink="/customer/manage-bids/{{ car.id }}"
+        routerLinkActive="router-link-active"
+      >
+        Manage Bids
+      </button>
+      <button
+        nzSize="small"
+        nz-button
+        nzType="primary"
+        routerLink="/customer/car/edit/{{ car.id }}"
+        routerLinkActive="router-link-active"
+      >
+        Update
+      </button>
+      <button
+        nzSize="small"
+        nz-button
+        nzType="primary"
+        nzDanger
+        (click)="deleteCar(car.id)"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+</div>

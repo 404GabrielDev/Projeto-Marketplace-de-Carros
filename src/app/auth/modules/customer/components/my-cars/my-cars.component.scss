@@ -1,0 +1,27 @@
+.container-card {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.card-car {
+    width: 70%;
+    border: 2px solid rgb(0, 166, 255);
+    border-radius: 1rem;
+    padding: 0.5rem;
+
+    //tentando centralizar os campos ( fica melhor? )
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.description-car {
+    font-size: 1.2rem;
+}
+
+.description-car h5 {
+    font-size: 1rem;
+}
