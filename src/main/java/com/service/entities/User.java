@@ -26,7 +26,8 @@ public class User implements UserDetails {
     private String password;
 
 
-    private UserRole userRole;
+    @Enumerated(EnumType.STRING)
+    private UserRole userRole = UserRole.CUSTOMER;
 
     public UserDTO getUserDTO () {
         UserDTO userDTO = new UserDTO();
@@ -39,8 +40,10 @@ public class User implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        System.out.println("UserRole Authority: " + userRole.name());
         return List.of(new SimpleGrantedAuthority(userRole.name()));
     }
+
 
     @Override
     public String getUsername() {
