@@ -1,9 +1,10 @@
 # 🚗 Car Deal Platform – Private Auction System
 
 ![Java](https://img.shields.io/badge/Backend-Java%2023-blue)
-![Angular](https://img.shields.io/badge/Frontend-Angular%2017-red)
+![Angular](https://img.shields.io/badge/Frontend-Angular%2019-red)
 ![MySQL](https://img.shields.io/badge/Database-MySQL-blue)
 ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
+
 
 Aplicação full-stack construída com **Angular + TypeScript** no frontend e **Java + Spring Boot** no backend.  
 Essa plataforma simula um marketplace privado de carros, onde usuários podem anunciar veículos e receber ofertas de outros usuários.
