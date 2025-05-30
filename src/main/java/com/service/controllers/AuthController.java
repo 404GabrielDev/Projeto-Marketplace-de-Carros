@@ -1,14 +1,13 @@
 package com.service.controllers;
 
-import com.service.dto.AuthenticationRequest;
-import com.service.dto.AuthenticationResponse;
-import com.service.dto.SignupRequest;
-import com.service.dto.UserDTO;
+import com.service.dto.*;
 import com.service.entities.User;
 import com.service.repositories.UserRepository;
 import com.service.services.auth.AuthService;
 import com.service.services.jwt.UserService;
 import com.service.utils.JWTUtil;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,16 +15,15 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/auth")
+@CrossOrigin(origins = "http://localhost:4200", allowCredentials = "true")
+
 public class AuthController {
 
     private final AuthService authService;
@@ -37,6 +35,7 @@ public class AuthController {
     private final UserRepository userRepository;
 
     private final AuthenticationManager authenticationManager;
+
 
     @PostMapping("/signup")
     public ResponseEntity<?> signup(@RequestBody SignupRequest signupRequest) {
@@ -53,7 +52,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public AuthenticationResponse login(@RequestBody AuthenticationRequest authenticationRequest) {
+    public AuthenticationResponse login(@RequestBody AuthenticationRequest authenticationRequest, HttpServletResponse httpServletResponse) {
         try {
             authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
@@ -71,11 +70,32 @@ public class AuthController {
         AuthenticationResponse response = new AuthenticationResponse();
         if (optionalUser.isPresent()) {
             User user = optionalUser.get();
+
+            Cookie cookie = new Cookie("jwt", jwt);
+            cookie.setHttpOnly(true);
+            cookie.setSecure(false);
+            cookie.setPath("/");
+            cookie.setMaxAge(86400);
+            httpServletResponse.addCookie(cookie);
+
             response.setJwt(jwt);
             response.setUserRole(user.getUserRole());
             response.setUserId(user.getId());
         }
         return response;
+    }
+
+    @GetMapping("/logout")
+    public ResponseEntity<?> logout(HttpServletResponse response) {
+        Cookie cookie = new Cookie("jwt", "");
+        cookie.setHttpOnly(true);
+        cookie.setSecure(false);
+        cookie.setPath("/");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+
+        MessageResponse messageResponse = new MessageResponse("Deslogado com sucesso!");
+        return ResponseEntity.ok(messageResponse);
     }
 
 
