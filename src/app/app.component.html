@@ -2,10 +2,29 @@
  <header>
     <h1>Aluguel Cars</h1>
 
-    <nav>
-        <button [routerLink]="'/register'">Register</button>
-        <button [routerLink]="'/login'">Login</button>
+    <nav *ngIf="!getRole()">
+        <button [routerLink]="'/register'" routerLinkActive="active">Register</button>
+        <button [routerLink]="'/login'" routerLinkActive="active">Login</button>
     </nav>
+
+    <div *ngIf="getRole() === 'ADMIN'">
+        <button [routerLink]="'/admin/dashboard'" routerLinkActive="active">Dashboard</button>
+        <button [routerLink]="'/admin/bookings'" routerLinkActive="active">Bookings</button>
+        <button [routerLink]="'/admin/search'" routerLinkActive="active">Search Car</button>
+        <button [routerLink]="'/login'"  (click)="logout()"routerLinkActive="active">Logout</button>
+    <!-- <button [routerLink]="'/admin/post-car'" routerLinkActive="active">Post Car</button> 
+     rota "Post-car" pro admin, não existe no tutorial, se quiser fazer...?.
+    -->
+    </div>
+
+    <div *ngIf="getRole() === 'CUSTOMER'">
+        <button [routerLink]="'/customer/dashboard'" routerLinkActive="active">Dashboard</button>
+        <button [routerLink]="'/customer/my-cars'" routerLinkActive="active">My Cars</button>
+        <button [routerLink]="'/customer/my-bids'" routerLinkActive="active">My Bids</button>
+        <button [routerLink]="'/customer/search-car'" routerLinkActive="active">Search Car</button>
+        <button [routerLink]="'/login'" (click)="logout()" routerLinkActive="active">Logout</button>
+        <button [routerLink]="'/customer/post-car'" routerLinkActive="active">Post Car</button>
+    </div>
  </header>
 
 

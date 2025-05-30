@@ -10,6 +10,8 @@ import {
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { AuthService } from './auth/services/auth/auth.service';
+import { NgIf } from '@angular/common';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -19,11 +21,12 @@ import { AuthService } from './auth/services/auth/auth.service';
     ReactiveFormsModule,
     NzInputModule,
     NzFormModule,
+    NgIf
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'sellcar_angular';
 
   isAdminLoggedIn: Boolean = false;
@@ -32,12 +35,18 @@ export class AppComponent implements OnInit {
 
   constructor(private authService: AuthService, private router:Router) {}
 
-  ngOnInit(): void {
-    this.isAdminLoggedIn = this.authService.isAdminLoggedIn();
+    public getRole() : string | null {
+      return this.authService.getUserRole()
+    }
 
-    this.isCustomerLoggedIn = this.authService.isCustomerLoggedIn();
-  }
-
-  //PROJETO PAUSADO PARA PEGAR MELHORES OS CONCEITOS DO ANGULAR ( PROJETO PAUSADO PARA REDIRECIONAMENTO DO DASHBOARD DE ACORDO COM A ROLE DELE ( ADMIN OU CUSTOMER ))
-  
+ logout() {
+  this.authService.logout().subscribe({
+    next: (message) => {
+      console.log(message)
+    },
+    error: (err) => {
+      console.log('Ocorreu um erro ao deslogar', err)
+    }
+  })
+ }
 }

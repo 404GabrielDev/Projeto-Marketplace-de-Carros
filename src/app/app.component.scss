@@ -13,3 +13,12 @@ nav button {
     width: 10rem;
     height: 2rem;
 }
+
+.active {
+    background-color: aqua;
+    transition: scale 0.5s ease, background-color 0.5s ease;
+}
+
+.active:hover {
+    scale: 1.1;
+}
