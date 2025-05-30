@@ -46,9 +46,12 @@ Essa plataforma simula um marketplace privado de carros, onde usuários podem an
 ## 📂 Estrutura do Repositório
 
 main-branch/
-├── frontend/ → Aplicação Angular (TypeScript + NgZorro)
-├── backend/ → Aplicação Spring Boot (Java)
-└── README.md → Documentação do projeto
+├── frontend/    → Aplicação Angular (TypeScript + NgZorro)
+
+├── backend/     → Aplicação Spring Boot (Java)
+
+└── README.md    → Documentação do projeto
+
 
 
 > 🧠 **Observação:** Todo o projeto foi desenvolvido utilizando o idioma **inglês no código**, tanto no frontend quanto no backend.  
