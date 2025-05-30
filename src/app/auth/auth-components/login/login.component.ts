@@ -59,11 +59,13 @@ export class LoginComponent {
   }
 
   login() {
-    console.log(this.loginForm.value);
     this.service.login(this.loginForm.value).subscribe({
       next:(res) => {
-        console.log(res);
-        this.service.setUserRole(res.user_role);
+        this.service.setUserRole(res.userRole);
+        //PEGANDO ID DO USUARIO AQUI:
+        this.service.setUserId(res.userId);
+
+        
         this.message.success('Login realizado com sucesso!')
         if(res.userRole === 'CUSTOMER') {
           this.router.navigate(['/customer/dashboard'])

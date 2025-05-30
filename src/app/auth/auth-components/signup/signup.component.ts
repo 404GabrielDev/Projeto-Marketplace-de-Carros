@@ -23,7 +23,7 @@ import { AuthService } from '../../services/auth/auth.service';
     NzInputModule,
     NzIconModule,
     NzButtonModule,
-    RouterModule
+    RouterModule,
   ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.scss',
@@ -49,7 +49,11 @@ export class SignupComponent {
 
   isSpinning: boolean = false;
 
-  constructor(private fb: FormBuilder, private service:AuthService, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private service: AuthService,
+    private router: Router
+  ) {
     this.signupForm = this.fb.group({
       name: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.email]],
@@ -60,24 +64,23 @@ export class SignupComponent {
 
   //entender validação personalizada
 
-  confirmationValidator = (control:FormControl): {[s:string]:boolean } => {
-    if(!control.value)
-      return{require: true};
-    else if(control.value !== this.signupForm.controls["password"].value)
-      return{confirm: true, error:true}
-    return{};
-  }
+  confirmationValidator = (control: FormControl): { [s: string]: boolean } => {
+    if (!control.value) return { require: true };
+    else if (control.value !== this.signupForm.controls['password'].value)
+      return { confirm: true, error: true };
+    return {};
+  };
 
   signup() {
-    console.log(this.signupForm.value);
     this.service.register(this.signupForm.value).subscribe({
       next: (res) => {
-        console.log(res);
-        this.router.navigate(['/login'])
+        this.router.navigate(['/login']);
       },
       error: (err) => {
-        console.error(err)
-      }
-    })
+        console.error(err);
+      },
+    });
   }
 }
+
+//ENTENDER SE É POSSIVEL MIGRAR PRA COMPONENTES STANDALONE ESSES MODULOS E DEPOIS DESENVOLVER O ROUTE GUARDS E TESTAR A APLICAÇÃO.
