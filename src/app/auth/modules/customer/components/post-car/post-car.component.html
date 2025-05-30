@@ -1,0 +1,160 @@
+<p>post-car works!</p>
+
+<nz-spin [nzSpinning]="isSpinning" nzSize="large" nzTip="Working...">
+  <h2>Post Car</h2>
+</nz-spin>
+
+<form nz-form [formGroup]="postCarForm" (ngSubmit)="postCar()">
+ 
+
+  <div style="display: flex; max-height: 800px;">
+    <div style="width: 50%;">
+      <image-cropper
+        [imageChangedEvent]="imageChangedEvent"
+        [maintainAspectRatio]="true"
+        [aspectRatio]="4 / 3"
+        format="png"
+        (imageCropped)="imageCropped($event)"
+        (imageLoaded)="imageLoaded($event)"
+        (cropperReady)="cropperReady()"
+        (loadImageFailed)="loadImageFailed()"
+        this.croppedImageBlob="event.blob;"
+        style="width: 100%; object-fit: cover;"
+      ></image-cropper>
+    </div>
+
+    <div style="width: 50%; display: flex; align-items: center; justify-content: center;">Melhor site pra aluguel de carros!</div>
+  </div>
+
+  <input type="file" (change)="fileChangeEvent($event)" />
+
+  <nz-form-item>
+    <nz-form-control nzHasFeedback nzErrorTip="This input is Required!">
+      <nz-select
+        nzShowSearch
+        nzAllowClear
+        nzPlaceHolder="Select a Brand Name"
+        formControlName="brand"
+      >
+        <nz-option
+          *ngFor="let brand of listOfBrands"
+          nzLabel="{{ brand }}"
+          [nzValue]="brand"
+        >
+        </nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control
+      nzHasFeedback
+      [nzXs]="24"
+      nzErrorTip="This input is Required"
+    >
+      <input nz-input placeholder="Name" formControlName="name" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control nzHasFeedback nzErrorTip="This input is Required!">
+      <nz-select
+        nzShowSearch
+        nzAllowClear
+        nzPlaceHolder="Select a Type"
+        formControlName="type"
+      >
+        <nz-option
+          *ngFor="let type of listOfType"
+          nzLabel="{{ type }}"
+          [nzValue]="type"
+        >
+        </nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control nzHasFeedback nzErrorTip="This input is Required!">
+      <nz-select
+        nzShowSearch
+        nzAllowClear
+        nzPlaceHolder="Select a Transmission"
+        formControlName="transmission"
+      >
+        <nz-option
+          *ngFor="let transmission of listOfTransmission"
+          nzLabel="{{ transmission }}"
+          [nzValue]="transmission"
+        >
+        </nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control nzHasFeedback nzErrorTip="This input is Required!">
+      <nz-select
+        nzShowSearch
+        nzAllowClear
+        nzPlaceHolder="Select a Color"
+        formControlName="color"
+      >
+        <nz-option
+          *ngFor="let color of listOfColors"
+          nzLabel="{{ color }}"
+          [nzValue]="color"
+        >
+        </nz-option>
+      </nz-select>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control
+      nzHasFeedback
+      [nzXs]="24"
+      nzErrorTip="This input is Required"
+    >
+      <nz-year-picker
+        style="width: 100%"
+        nzPlaceHolder="Model Year"
+        formControlName="year"
+      >
+      </nz-year-picker>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control
+      nzHasFeedback
+      [nzXs]="24"
+      nzErrorTip="This input is Required"
+    >
+      <input nz-input placeholder="Price" formControlName="price" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control
+      nzHasFeedback
+      [nzXs]="24"
+      nzErrorTip="This input is Required"
+    >
+      <textarea
+        rows="1"
+        nz-input
+        placeholder="Description"
+        formControlName="description"
+      ></textarea>
+    </nz-form-control>
+  </nz-form-item>
+
+  <button
+    nz-button
+    class="login-form-button login-form-margin"
+    nzType="'primary'"
+  >
+    Post
+  </button>
+</form>
