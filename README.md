@@ -120,6 +120,6 @@ Este projeto me ajudou a evoluir em:
 
 Fique à vontade para entrar em contato:  
 **João Gabriel** – Desenvolvedor Full Stack  
-[LinkedIn](https://www.linkedin.com/in/jo%C3%A3o-gabriel-s-b22407365/) • [Email](joaogabriell.ssm@gmail.com)
+[LinkedIn](https://www.linkedin.com/in/jo%C3%A3o-gabriel-s-b22407365/) • Email: joaogabriell.ssm@gmail.com
 
 ---
