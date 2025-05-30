@@ -1,0 +1,61 @@
+<p>book-a-car works!</p>
+
+<p>customer-dashboard works!</p>
+
+<div *ngIf="Car" class="container-card">
+  <div [formGroup]="bidForm" class="card-car">
+    <div>
+      <img
+        class="profile"
+        [src]="'data:image/jpeg;base64,' + Car.returnedImg"
+        alt="profile"
+        [ngStyle]="{
+          width: Car.imageOrientation === 'horizontal' ? '300px' : '200px',
+          height: 'auto',
+          'border-radius': '1rem'
+        }"
+      />
+    </div>
+
+    <div class="description-car">
+      <h2>{{ Car.brand }} - {{ Car.name }}</h2>
+      <p>{{ Car.description }}</p>
+
+      <hr />
+      <h5>
+        Price : <b>{{ Car.price }}</b> - Color : <b>{{ Car.color }}</b> -
+        Transmission : <b>{{ Car.transmission }}</b> - Type:
+        <B>{{ Car.type }}</B> - Year: <b>{{ Car.year | date : "yyyy" }}</b>
+      </h5>
+    </div>
+  </div>
+
+  <form [formGroup]="bidForm">
+    <div *ngIf="Car && !Car.hasBid" class="form-field">
+      <label for="price">Bid Amount</label>
+      <input nz-input type="number" formControlName="price" id="price" />
+
+      <button
+        *ngIf="Car && !Car.hasBid"
+        class="filterBtn"
+        nz-button
+        nzType="primary"
+        [disabled]="bidForm.invalid"
+        (click)="bidACar(bidForm.value)"
+      >
+        Bid on Car
+      </button>
+    </div>
+    <div *ngFor="let bid of bid">
+      <button
+        *ngIf="Car.hasBid"
+        class="filterBtn"
+        nz-button
+        nzType="primary"
+        [disabled]="bidForm.invalid"
+      >
+        Your Bid : {{ bid.price }}
+      </button>
+    </div>
+  </form>
+</div>
