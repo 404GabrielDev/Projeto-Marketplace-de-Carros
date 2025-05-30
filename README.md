@@ -1,6 +1,6 @@
 # 🚗 Car Deal Platform – Private Auction System
 
-![Java](https://img.shields.io/badge/Backend-Java%2023-blue)
+![Java](https://img.shields.io/badge/Backend-Java%2021-blue)
 ![Angular](https://img.shields.io/badge/Frontend-Angular%2019-red)
 ![MySQL](https://img.shields.io/badge/Database-MySQL-blue)
 ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
