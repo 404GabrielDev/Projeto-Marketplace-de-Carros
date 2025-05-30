@@ -1,0 +1,36 @@
+<p>view-my-bids works!</p>
+
+<nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
+    <nz-table #basicTable [nzData]="bids" [nzPageSize]="20" [nzShowPagination]="'false'">
+        <thead>
+            <tr>
+                <th style="font-weight: bolder; color: #003973;">Car Name</th>
+                <th style="font-weight: bolder; color: #003973;">Car Brand</th>
+                <th style="font-weight: bolder; color: #003973;">Seller Name</th>
+                <th style="font-weight: bolder; color: #003973;">Price</th>
+                <th style="font-weight: bolder; color: #003973;">Status</th>
+                <th style="font-weight: bolder; color: #003973;">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let booking of basicTable.data">
+                <td>{{booking.carName}}</td>
+                <td>{{booking.carBrand}}</td>
+                <td>{{booking.sellerName}}</td>
+                <td>{{booking.price}}</td>
+                <td>
+                    <!--//CORRIGIR A PALAVRA "APROVED" É APPROVED, ( TEM QUE CORRIGIR NO BACKEND )-->
+                    <strong [ngStyle]="{'color': booking.bidStatus === 'APROVED' ? 'green' : booking.bidStatus === 'REJECTED' ? 'blue' : 'red'}">
+                        {{booking.bidStatus}}
+                    </strong>
+                </td>
+                <td>
+                    <span *ngIf="booking.bidStatus == 'PENDING'">
+                        <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" (click)="changeBookingStatus(booking.id, 'Approve')">Approve</button>
+                        <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" (click)="changeBookingStatus(booking.id, 'Reject')">Reject</button>
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+</nz-spin>
