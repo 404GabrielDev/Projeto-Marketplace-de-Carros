@@ -24,7 +24,7 @@ Essa plataforma simula um marketplace privado de carros, onde usuários podem an
 - Editar detalhes da oferta (ex: valor proposto)
 - Acompanhar propostas em um dashboard privado
 
-> ⚠️ O projeto já está funcional, mas ainda está em desenvolvimento. Novas funcionalidades e melhorias estão sendo adicionadas gradualmente.
+⚠️ O projeto está funcional, com novas funcionalidades e melhorias sendo implementadas continuamente.
 
 ---
 
