@@ -56,6 +56,9 @@ export class PostCarComponent {
     'HAVAL',
     'SUBARU',
     'VOLKSWAGEN',
+    'PEOGEOT',
+    'HONDA',
+    'TOYOTA'
   ];
   listOfType = ['Petrol', 'Hybrid', 'Diesel', 'CNG', 'Eletric'];
   listOfColors = [

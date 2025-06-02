@@ -1,0 +1,21 @@
+button {
+    cursor: pointer;
+    width: 11rem;
+    height: 2.5rem;
+    border: none;
+    border-radius: .5rem;
+    padding: .5rem;
+    background-color: #000;
+    color: #fff;
+    transition: scale .5s ease, background-color .5s ease;
+}
+
+button:hover {
+    scale: 1.1;
+    background-color: #f60;
+}
+
+.container-btnActions {
+    display: flex;
+    gap: 1rem;
+}

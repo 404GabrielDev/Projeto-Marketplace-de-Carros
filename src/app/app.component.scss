@@ -1,3 +1,4 @@
+
 header {
     display: flex;
     justify-content: space-between;
@@ -9,16 +10,45 @@ nav {
     gap: 1rem;
 }
 
-nav button {
-    width: 10rem;
-    height: 2rem;
-}
 
 .active {
-    background-color: aqua;
+    background-color: #000;
+    color: #f70;
+    font-weight: bold;
+    border: 1px solid #000;
     transition: scale 0.5s ease, background-color 0.5s ease;
 }
 
 .active:hover {
     scale: 1.1;
+    background-color: #f70;
+    color: #000;
+}
+
+button {
+    text-align: center;
+    width: 10rem;
+    height: 3rem;
+    border: none;
+    border-radius: .5rem;
+    padding: .5rem;
+    background-color: #000;
+    color: #fff;
+    transition: scale 0.5s ease, background-color .5s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    scale: 1.1;
+    background-color: #f60;
+}
+
+.nav-admin {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.nav-customer {
+    display: flex;
+    gap: .5rem;
 }

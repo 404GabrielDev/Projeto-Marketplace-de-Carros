@@ -1,17 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import {
-  FormGroup,
-  FormBuilder,
   ReactiveFormsModule,
-  Validators,
 } from '@angular/forms';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { AuthService } from './auth/services/auth/auth.service';
 import { NgIf } from '@angular/common';
-import { Observable } from 'rxjs';
+import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-root',
@@ -33,7 +30,7 @@ export class AppComponent {
 
   isCustomerLoggedIn: Boolean = false;
 
-  constructor(private authService: AuthService, private router:Router) {}
+  constructor(private authService: AuthService, private router:Router, private message:NzMessageService) {}
 
     public getRole() : string | null {
       return this.authService.getUserRole()
@@ -42,9 +39,11 @@ export class AppComponent {
  logout() {
   this.authService.logout().subscribe({
     next: (message) => {
+      this.message.success("Successfully logged out")
       console.log(message)
     },
     error: (err) => {
+      this.message.error("Error logged out")
       console.log('Ocorreu um erro ao deslogar', err)
     }
   })

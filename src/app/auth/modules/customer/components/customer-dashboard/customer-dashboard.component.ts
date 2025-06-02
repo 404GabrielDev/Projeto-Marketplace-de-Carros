@@ -35,6 +35,7 @@ interface Bid {
   sellerName: string;
   carName: string;
   userId: number;
+  resultBid: boolean;
 }
 
 interface carBidUser {
@@ -60,6 +61,7 @@ export class CustomerDashboardComponent {
   idUserBid!: number;
   BidsByUser!: boolean;
   analytics: any;
+  combinedCars: (Car & { bidResult?: Bid })[] = [];
 
   ngOnInit() {
     this.userId = this.authService.getUserId();
@@ -69,7 +71,15 @@ export class CustomerDashboardComponent {
 
   getBidsUser() {
     this.service.getBids(this.userId).subscribe((res) => {
-      this.bid = res;
+      this.bid = res.map((bid: Bid) => {
+        const stateBid = this.bid.some(
+          (b) =>
+            b.bidStatus === 'APROVED' ||
+            b.bidStatus === 'REJECTED' ||
+            b.bidStatus === 'PENDING'
+        );
+        return { ...bid, resultBid: stateBid };
+      });
       this.getCars();
     });
   }
@@ -79,7 +89,6 @@ export class CustomerDashboardComponent {
       this.cars = res.map((car: Car) => {
         const userHasBid = this.bid.some((b) => b.carId === car.id);
         const ownerCar = this.userId.toString() === car.userId.toString();
-        console.log("Informações dos carros aqui:", res)
 
         return { ...car, hasBid: userHasBid, ownerTheCar: ownerCar };
       });
@@ -88,18 +97,22 @@ export class CustomerDashboardComponent {
         const img = new Image();
         img.src = 'data:image/jpeg;base64,' + car.returnedImg;
 
-        
         img.onload = () => {
-          
           car.imageOrientation =
             img.width > img.height ? 'horizontal' : 'vertical';
         };
 
-        
         img.onerror = (err) => {
           console.error('Erro ao carregar a imagem', err);
         };
       });
+
+
+      this.combinedCars = this.cars.map((car) => {
+      const bidResult = this.bid.find((b) => b.carId === car.id);
+      return { ...car, bidResult };
+    });
+
     });
   }
 
@@ -114,3 +127,7 @@ export class CustomerDashboardComponent {
     textAlign: 'center',
   };
 }
+
+//talvez desenvolver uma variavel global resolva o problema, um que verifique se o carId é igual o do bid
+
+//tambem desenvolver uma logica que exiba o nome do leiloado, e se for o proprio usuario exibir algo semelhante.

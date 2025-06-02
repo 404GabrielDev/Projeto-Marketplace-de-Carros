@@ -1,6 +1,4 @@
-<p>view-my-bids works!</p>
-
-<nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
+<nz-spin class="container-managed" [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
     <nz-table #basicTable [nzData]="bids" [nzPageSize]="20" [nzShowPagination]="'false'">
         <thead>
             <tr>
@@ -25,7 +23,7 @@
                     </strong>
                 </td>
                 <td>
-                    <span *ngIf="booking.bidStatus == 'PENDING'">
+                    <span *ngIf="booking.bidStatus == 'PENDING'" class="container-btnActions">
                         <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" (click)="changeBookingStatus(booking.id, 'Approve')">Approve</button>
                         <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" (click)="changeBookingStatus(booking.id, 'Reject')">Reject</button>
                     </span>

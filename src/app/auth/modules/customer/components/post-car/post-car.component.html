@@ -7,7 +7,7 @@
 <form nz-form [formGroup]="postCarForm" (ngSubmit)="postCar()">
  
 
-  <div style="display: flex; max-height: 800px;">
+  <div style="max-height: 800px; display: flex; justify-content: center; align-items: center;">
     <div style="width: 50%;">
       <image-cropper
         [imageChangedEvent]="imageChangedEvent"
@@ -22,8 +22,6 @@
         style="width: 100%; object-fit: cover;"
       ></image-cropper>
     </div>
-
-    <div style="width: 50%; display: flex; align-items: center; justify-content: center;">Melhor site pra aluguel de carros!</div>
   </div>
 
   <input type="file" (change)="fileChangeEvent($event)" />
