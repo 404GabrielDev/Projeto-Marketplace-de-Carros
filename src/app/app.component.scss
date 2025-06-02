@@ -3,11 +3,17 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 1rem;
+     background-color: #f5f5f5;
+  padding: 1rem;
+  width: 100%;
 }
 
 nav {
     display: flex;
     gap: 1rem;
+    border: 2px solid red;
+    padding: 0rem 1rem;
+    width: auto;
 }
 
 
@@ -52,3 +58,20 @@ button:hover {
     display: flex;
     gap: .5rem;
 }
+
+
+footer {
+  background-color: #eee;
+  padding: 1rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+main img{
+  object-fit: cover;
+  width: 100%;
+  min-height: 100%;
+  object-position: center;
+}
+
+
