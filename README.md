@@ -11,6 +11,15 @@ Essa plataforma simula um marketplace privado de carros, onde usuários podem an
 
 ---
 
+## 🖼️ Preview da Interface
+
+Abaixo está uma prévia da tela principal da aplicação (homepage).  
+Essa tela é pública e exibe os anúncios de carros disponíveis.
+
+<p align="center">
+  <img src="docs/Screenshot1.png" alt="Screenshot da Homepage" width="800">
+</p>
+
 ## 📌 Features
 
 ### 👤 Usuários gerais
