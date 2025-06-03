@@ -17,7 +17,7 @@ Abaixo está uma prévia da tela principal da aplicação (homepage).
 Essa tela é pública e exibe os anúncios de carros disponíveis.
 
 <p align="center">
-  <img src="docs/Screenshot1.png" alt="Screenshot da Homepage" width="800">
+  <img src="https://raw.githubusercontent.com/404GabrielDev/Projeto-Marketplace-de-Carros/frontend/docs/Screenshot1.png" alt="Screenshot da Homepage" width="800">
 </p>
 
 ## 📌 Features
