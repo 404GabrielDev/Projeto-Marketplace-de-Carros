@@ -9,6 +9,7 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { AuthService } from './auth/services/auth/auth.service';
 import { NgIf } from '@angular/common';
 import { NzMessageService } from 'ng-zorro-antd/message';
+import { CustomerDashboardComponent } from './auth/modules/customer/components/customer-dashboard/customer-dashboard.component';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +19,8 @@ import { NzMessageService } from 'ng-zorro-antd/message';
     ReactiveFormsModule,
     NzInputModule,
     NzFormModule,
-    NgIf
+    NgIf,
+    CustomerDashboardComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
