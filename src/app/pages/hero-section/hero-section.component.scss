@@ -1,0 +1,86 @@
+.titleImg-hero {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titleImg-hero img {
+  width: 70%;
+  max-height: 500px;
+}
+
+section {
+  width: 70%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  gap: 10px; /* space between images */
+  margin: 0 auto; /* center the section */
+}
+
+section img {
+  width: 100%;
+  height: 500px;
+  display: block;
+  object-fit: cover; /* crops image nicely */
+  border-radius: 8px; /* optional rounded corners */
+}
+
+
+
+
+
+//ESTILIZANDO CONTEUDO DAS IMAGENS
+.container-NewsImgs {
+  margin-top: 2rem;
+}
+.container-NewsImgs h1 {
+  text-align: center;
+}
+
+//SECTION CALL SIGNUP
+.cta-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cta-section p {
+    width: 70%;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+}
+
+.cta-phs {
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.cta-btns {
+    display: flex;
+    gap: 1rem;
+}
+
+.cta-btns button {
+    width: 12rem;
+    height: 2.5rem;
+    background-color: #000;
+    border: none;
+    border-radius: .5rem;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color .5s ease, color .5s ease;
+}
+
+.cta-btns button:hover {
+    background-color: #f70;
+    color: #000;
+}
