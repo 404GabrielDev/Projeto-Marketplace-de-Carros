@@ -1,0 +1,54 @@
+<header>
+  <h1 style="color: #fff; cursor: pointer;" [routerLink]="'/home'">PrimeAuto</h1>
+
+  <nav *ngIf="!getRole()">
+    <button [routerLink]="'/register'" routerLinkActive="active">
+      Register
+    </button>
+    <button [routerLink]="'/login'" routerLinkActive="active">Login</button>
+  </nav>
+
+  <div *ngIf="getRole() === 'ADMIN'" class="nav-admin">
+    <button [routerLink]="'/admin/dashboard'" routerLinkActive="active">
+      Dashboard
+    </button>
+    <button [routerLink]="'/admin/bookings'" routerLinkActive="active">
+      Bookings
+    </button>
+    <button [routerLink]="'/admin/search'" routerLinkActive="active">
+      Search Car
+    </button>
+    <button
+      [routerLink]="'/login'"
+      (click)="logout()"
+      routerLinkActive="active"
+    >
+      Logout
+    </button>
+  </div>
+
+  <div *ngIf="getRole() === 'CUSTOMER'" class="nav-customer">
+    <button [routerLink]="'/customer/dashboard'" routerLinkActive="active">
+      Dashboard
+    </button>
+    <button [routerLink]="'/customer/my-cars'" routerLinkActive="active">
+      My Cars
+    </button>
+    <button [routerLink]="'/customer/my-bids'" routerLinkActive="active">
+      My Bids
+    </button>
+    <button [routerLink]="'/customer/search-car'" routerLinkActive="active">
+      Search Car
+    </button>
+    <button [routerLink]="'/customer/post-car'" routerLinkActive="active">
+      Post Car
+    </button>
+    <button
+      [routerLink]="'/login'"
+      (click)="logout()"
+      routerLinkActive="active"
+    >
+      Logout
+    </button>
+  </div>
+</header>
