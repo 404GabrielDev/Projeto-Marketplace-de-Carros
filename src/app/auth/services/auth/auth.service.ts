@@ -88,3 +88,5 @@ export class AuthService {
       );
   }
 }
+
+//concertar esse logout pra remover o JWT corretamente.
