@@ -1,0 +1,70 @@
+
+//conteudo home
+
+main {
+    margin-top: 2rem;
+}
+.container-images {
+  max-width: 100%;
+  max-height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.card-imageHome img {
+  width: 500px;
+  height: 600px;
+  border-radius: 0.5rem;
+  transition: transform 0.5s ease;
+}
+
+.card-imageHome h1 {
+  background-color: #f8f4f0;
+  text-align: center;
+}
+
+.imageCard {
+  overflow: hidden;
+}
+
+.card-imageHome img:hover {
+  transform: scale(1.05);
+}
+
+.container-images img {
+  object-fit: cover;
+}
+
+#container-homeBtn {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#container-homeBtn h3 {
+  width: 20rem;
+  height: 3rem;
+  border: 2px solid #000;
+  background-color: #000;
+  color: #fff;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: color 0.5s ease, transform 0.5s ease;
+}
+
+#container-homeBtn h3:hover {
+  transform: scale(1.1);
+  color: #f70;
+}
+
+main img {
+  object-fit: cover;
+  width: 100%;
+  min-height: 100%;
+  object-position: center;
+}
