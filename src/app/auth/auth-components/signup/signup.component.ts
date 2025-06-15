@@ -16,6 +16,7 @@ import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-signup',
+  standalone: true,
   imports: [
     ReactiveFormsModule,
     NzSpinModule,
@@ -26,7 +27,7 @@ import { AuthService } from '../../services/auth/auth.service';
     RouterModule,
   ],
   templateUrl: './signup.component.html',
-  styleUrl: './signup.component.scss',
+  styleUrls:['./signup.component.scss'],
 })
 export class SignupComponent {
   signupForm!: FormGroup;
