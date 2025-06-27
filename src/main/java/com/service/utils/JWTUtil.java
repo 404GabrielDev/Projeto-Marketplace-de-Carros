@@ -20,7 +20,7 @@ public class JWTUtil {
 
     private Key getSigningKey() {
 
-        String SECRET = "MWy4D4a+9WfZbZqPG5JmCvEq+Tw9JYJ2E7gN8A2hJKM=";
+        String SECRET = "Seu token aqui";
         byte[] keyBytes = Decoders.BASE64.decode(SECRET);
         return Keys.hmacShaKeyFor(keyBytes);
     }
