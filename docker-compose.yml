@@ -1,0 +1,44 @@
+
+
+services:
+  mysql:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: sellcar_db
+      MYSQL_ROOT_PASSWORD: mrrobot
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-hmysql", "-uroot", "-pmrrobot"]
+      interval: 5s
+      timeout: 10s
+      retries: 10
+    networks:
+      - appnet
+
+  backend:
+    image: 404gabriel/backend:v1.0
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - appnet
+
+  frontend:
+    image: 404gabriel/frontend:v1.0
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  mysql_data:
+
+networks:
+  appnet:
+    driver: bridge
