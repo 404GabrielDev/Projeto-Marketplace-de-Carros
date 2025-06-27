@@ -128,6 +128,26 @@ Este projeto me ajudou a evoluir em:
 
 ---
 
+### Opção 2
+
+###Rodar via Docker (com Docker Compose)
+Para facilitar a execução do projeto completo (frontend, backend e banco de dados MySQL), você pode utilizar o arquivo docker-compose.yml que está disponível neste repositório.
+
+Com o Docker e Docker Compose instalados, basta executar o comando:
+```bash
+docker compose up --build
+```
+
+Esse comando irá:
+
+* Construir as imagens do frontend Angular e backend Java Spring Boot
+
+* Criar e iniciar os containers necessários (frontend, backend e banco MySQL)
+
+* Configurar a rede entre os containers para que o sistema funcione integrado
+
+---
+
 ## 📬 Contato
 
 Fique à vontade para entrar em contato:  
