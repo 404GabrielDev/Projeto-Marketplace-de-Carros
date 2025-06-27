@@ -129,9 +129,10 @@ Este projeto me ajudou a evoluir em:
 ---
 
 ### Opção 2
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
 ### Rodar via Docker (com Docker Compose)
-![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+
 Para facilitar a execução do projeto completo (frontend, backend e banco de dados MySQL), você pode utilizar o arquivo docker-compose.yml que está disponível neste repositório.
 
 Com o Docker e Docker Compose instalados, basta executar o comando:
