@@ -16,9 +16,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import {
   NzDatePickerModule,
-  NzYearPickerComponent,
 } from 'ng-zorro-antd/date-picker';
-import { ImageCropperComponent } from 'ngx-image-cropper';
 
 interface Car {
   id: number;
@@ -58,10 +56,8 @@ interface Bid {
     NzSpinModule,
     NzFormModule,
     NzSelectModule,
-    NzYearPickerComponent,
     ReactiveFormsModule,
     NzDatePickerModule,
-    ImageCropperComponent,
   ],
   templateUrl: './book-a-car.component.html',
   styleUrl: './book-a-car.component.scss',
@@ -72,7 +68,6 @@ export class BookACarComponent {
     private fb: FormBuilder,
     private router: Router,
     private message: NzMessageService,
-    private sanitizer: DomSanitizer,
     private authService: AuthService,
     private activatedRoute: ActivatedRoute
   ) {}
@@ -99,7 +94,7 @@ export class BookACarComponent {
     this.getCarById();
   }
 
-  //colocar pra rodar
+ 
   getCarById() {
     this.service.getCarById(this.idCar).subscribe((car:Car) => {
       const userHasBid = this.bid.some((b) => b.carId === car.id);
@@ -137,6 +132,3 @@ export class BookACarComponent {
     });
   }
 }
-
-
-//CORRIGI A BAGUNÇA DESSE ARQUIVO, COM A LOGICA DO HTML DE MOSTRAR OS BIDS

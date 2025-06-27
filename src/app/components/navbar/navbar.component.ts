@@ -4,14 +4,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterOutlet, RouterModule, Router } from '@angular/router';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
-import { CustomerDashboardComponent } from '../../auth/modules/customer/components/customer-dashboard/customer-dashboard.component';
 import { AuthService } from '../../auth/services/auth/auth.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
   selector: 'app-navbar',
   imports: [
-    RouterOutlet,
     RouterModule,
     ReactiveFormsModule,
     NzInputModule,
