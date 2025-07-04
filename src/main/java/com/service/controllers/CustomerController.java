@@ -24,7 +24,6 @@ public class CustomerController {
     @PostMapping("/car")
     public ResponseEntity<?> addCar(@ModelAttribute CarDTO carDTO, HttpServletRequest request) throws Exception {
         long contentLength = request.getContentLength();
-        System.out.println(">>>>>>>>>Tamanho da requisição:" + contentLength);
 
         boolean success = customerService.createCar(carDTO);
         if (success) return ResponseEntity.status(HttpStatus.CREATED).build();
@@ -43,7 +42,6 @@ public class CustomerController {
 
     @GetMapping("/test-auth")
     public ResponseEntity<?> testAuth() {
-        System.out.println(">>> Controller entrou! Auth: " + SecurityContextHolder.getContext().getAuthentication());
         return ResponseEntity.ok("Ok");
     }
 
