@@ -30,7 +30,7 @@ public class Car {
     private String color;
 
 
-    private Integer year;  // A entidade espera Date
+    private Integer year;
 
     private Boolean sold;
 
@@ -55,7 +55,7 @@ public class Car {
         carDto.setName(name);
         carDto.setBrand(brand);
 
-        //SEPARA Q LA VEM BOMBA
+        //SEPARA Q LA VEM BOMBA!
         carDto.setUserId(user.getId());
         //------------------
 
@@ -63,9 +63,8 @@ public class Car {
         carDto.setTransmission(transmission);
         carDto.setColor(color);
 
-        //DATA/ANO do carro
+        
         carDto.setYear(year != null ? year.toString() : null);
-        //-----------------------
 
 
         carDto.setSold(sold);
