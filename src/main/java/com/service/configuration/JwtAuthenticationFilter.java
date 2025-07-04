@@ -43,16 +43,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
                         userDetails, null, userDetails.getAuthorities()
                 );
-                System.out.println(">>> Carregando authorities ou tentando: " + userDetails.getAuthorities());
+                
                 usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                 context.setAuthentication(usernamePasswordAuthenticationToken);
                 SecurityContextHolder.setContext(context);
-                System.out.println(">>> Contexto depois do set: " + SecurityContextHolder.getContext());
             }
         }
-        System.out.println(">>> JWT Filtro final: " + SecurityContextHolder.getContext().getAuthentication());
 
-        //BLOCO DENTRO DO IF ESTÁ FUNCIONANDO PARCIALMENTE, FAZER TESTES, APARENTEMENTE LOGICA GETAUTHORITIES FUNCIONANDO ( ? ? ? )
         filterChain.doFilter(request, response);
     }
 
