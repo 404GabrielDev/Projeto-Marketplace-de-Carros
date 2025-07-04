@@ -17,22 +17,6 @@ import java.util.Optional;
 public class AuthServiceImpl implements AuthService {
     private final UserRepository userRepository;
 
-    /*@PostConstruct
-    public void createAnAdminAccount() {
-        Optional<User> optionalAdmin = userRepository.findByUserRole(UserRole.ADMIN);
-        if(optionalAdmin.isEmpty()) {
-            User admin = new User();
-            admin.setName("Admin");
-            admin.setEmail("admin@test.com");
-            admin.setUserRole(UserRole.ADMIN);
-            admin.setPassword(new BCryptPasswordEncoder().encode("admin"));
-            userRepository.save(admin);
-            System.out.println("Admin account created successfully");
-        } else {
-            System.out.println("Admin account already exist");
-        }
-    }*/
-
     @Override
     public UserDTO signup(SignupRequest signupRequest) {
         User user = new User();
